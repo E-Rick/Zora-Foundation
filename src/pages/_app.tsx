@@ -8,12 +8,12 @@ import {chain, createClient, WagmiConfig, configureChains} from "wagmi";
 import {infuraProvider} from "wagmi/providers/infura";
 
 const {chains, provider} = configureChains(
-	[chain.mainnet],
+	[chain.mainnet, chain.rinkeby],
 	[infuraProvider({infuraId: process.env.INFURA_ID})]
 );
 
 const {connectors} = getDefaultWallets({
-	appName: "ZORBs",
+	appName: "WRECS",
 	chains,
 });
 
@@ -23,7 +23,7 @@ const wagmiClient = createClient({
 	provider,
 });
 
-// Create a client
+// Create a client for GraphQL calls
 const queryClient = new QueryClient();
 
 function MyApp({Component, pageProps}: AppProps) {
