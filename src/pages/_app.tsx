@@ -7,16 +7,19 @@ import {getDefaultWallets, RainbowKitProvider, darkTheme} from "@rainbow-me/rain
 import {chain, createClient, WagmiConfig, configureChains} from "wagmi";
 import {infuraProvider} from "wagmi/providers/infura";
 
+// Configure the chains for rainbowkit
 const {chains, provider} = configureChains(
 	[chain.mainnet, chain.rinkeby],
 	[infuraProvider({infuraId: process.env.INFURA_ID})]
 );
 
+//  Setup the appName and default wallets for Rainbowkit
 const {connectors} = getDefaultWallets({
 	appName: "WRECS",
 	chains,
 });
 
+// Create the Wagmi Client with the wallet connectors and providers
 const wagmiClient = createClient({
 	autoConnect: true,
 	connectors,
