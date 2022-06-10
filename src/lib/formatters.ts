@@ -6,10 +6,10 @@
  */
 export const getEllipsisTxt = (str: string, n = 6) => {
 	if (str) {
-		return `${str.slice(0, n)}...${str.slice(str.length - n)}`;
+		return `${str.slice(0, n)}...${str.slice(str.length - n)}`
 	}
-	return "";
-};
+	return ''
+}
 
 /**
  * Returns a string of form "abc...xyz"
@@ -20,7 +20,7 @@ export const getEllipsisTxt = (str: string, n = 6) => {
  */
 export const shortenAddress = (str: string | null, front = 6, end = 4) => {
 	if (str) {
-		return `${str.slice(0, front)}...${str.slice(str.length - end)}`;
+		return `${str.slice(0, front)}...${str.slice(str.length - end)}`
 	}
-	return "";
-};
+	return ''
+}
