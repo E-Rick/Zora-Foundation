@@ -1,21 +1,22 @@
-import "../styles/globals.css";
+import {APP_NAME} from "@/lib/consts";
+import {darkTheme, getDefaultWallets, RainbowKitProvider} from "@rainbow-me/rainbowkit";
 import "@rainbow-me/rainbowkit/styles.css";
 import type {AppProps} from "next/app";
 import {QueryClient, QueryClientProvider} from "react-query";
 import {ReactQueryDevtools} from "react-query/devtools";
-import {getDefaultWallets, RainbowKitProvider, darkTheme} from "@rainbow-me/rainbowkit";
-import {chain, createClient, WagmiConfig, configureChains} from "wagmi";
+import {chain, configureChains, createClient, WagmiConfig} from "wagmi";
 import {infuraProvider} from "wagmi/providers/infura";
+import "../styles/globals.css";
 
-// Configure the chains for rainbowkit
+// Configure the chains for Rainbowkit
 const {chains, provider} = configureChains(
 	[chain.mainnet, chain.rinkeby],
 	[infuraProvider({infuraId: process.env.INFURA_ID})]
 );
 
-//  Setup the appName and default wallets for Rainbowkit
+// Setup the appName and default wallets for Rainbowkit
 const {connectors} = getDefaultWallets({
-	appName: "WRECS",
+	appName: APP_NAME,
 	chains,
 });
 
@@ -26,7 +27,7 @@ const wagmiClient = createClient({
 	provider,
 });
 
-// Create a client for GraphQL calls
+// Create a react-query QueryClient for GraphQL calls
 const queryClient = new QueryClient();
 
 function MyApp({Component, pageProps}: AppProps) {
