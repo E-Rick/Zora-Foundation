@@ -1,7 +1,7 @@
 {
-	"name": "zorbs",
+	"name": "zora-foundation",
 	"version": "0.1.0",
-	"author": "WRECS",
+	"author": "Erick Martinez Jr.",
 	"private": true,
 	"keywords": [
 		"vanilla-extract",
@@ -19,10 +19,10 @@
 		"lint": "next lint"
 	},
 	"dependencies": {
+		"@floating-ui/react-dom-interactions": "^0.6.4",
 		"@fontsource/ia-writer-mono": "^4.5.3",
 		"@fontsource/inter": "^4.5.11",
 		"@rainbow-me/rainbowkit": "^0.2.0",
-		"@tippyjs/react": "^4.2.6",
 		"@zoralabs/nft-hooks": "^1.1.4",
 		"@zoralabs/zdk": "^2.1.2",
 		"degen": "^0.0.85",
@@ -32,7 +32,6 @@
 		"react": "18.1.0",
 		"react-dom": "18.1.0",
 		"react-query": "^3.39.1",
-		"styled-components": "^5.3.5",
 		"wagmi": "^0.4.2"
 	},
 	"devDependencies": {
