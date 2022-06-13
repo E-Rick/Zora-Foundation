@@ -1,0 +1,1 @@
+export { NFTFullPage } from './NFTFullPage'
