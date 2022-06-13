@@ -7,6 +7,10 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { chain, configureChains, createClient, WagmiConfig } from 'wagmi'
 import { infuraProvider } from 'wagmi/providers/infura'
 import '../styles/globals.css'
+import { ThemeProvider } from 'degen'
+import 'degen/styles'
+import '@fontsource/ia-writer-mono'
+import '@fontsource/inter'
 
 // Configure the chains for Rainbowkit
 const { chains, provider } = configureChains(
@@ -32,20 +36,23 @@ const queryClient = new QueryClient()
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<WagmiConfig client={wagmiClient}>
-			<RainbowKitProvider
-				chains={chains}
-				theme={darkTheme({
-					accentColor: '#cb9e59ff',
-					borderRadius: 'small',
-				})}
-			>
-				<QueryClientProvider client={queryClient}>
-					<ReactQueryDevtools initialIsOpen={true} />
-					<Component {...pageProps} />;
-				</QueryClientProvider>
-			</RainbowKitProvider>
-		</WagmiConfig>
+		<ThemeProvider>
+			<WagmiConfig client={wagmiClient}>
+				<RainbowKitProvider
+					showRecentTransactions={true}
+					chains={chains}
+					theme={darkTheme({
+						accentColor: '#cb9e59ff',
+						borderRadius: 'small',
+					})}
+				>
+					<QueryClientProvider client={queryClient}>
+						<ReactQueryDevtools initialIsOpen={true} />
+						<Component {...pageProps} />;
+					</QueryClientProvider>
+				</RainbowKitProvider>
+			</WagmiConfig>
+		</ThemeProvider>
 	)
 }
 
