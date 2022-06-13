@@ -1,0 +1,1 @@
+export { UserProfileTooltip } from './UserProfileTooltip'
