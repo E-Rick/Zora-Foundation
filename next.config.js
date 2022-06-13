@@ -2,7 +2,7 @@
 const nextConfig = {
 	reactStrictMode: true,
 	images: {
-		domains: ['images.mirror-media.xyz'],
+		domains: ['images.mirror-media.xyz', 'gateway.pinata.cloud'],
 	},
 }
 
