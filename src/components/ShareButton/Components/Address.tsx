@@ -11,11 +11,10 @@ type AddressProps = {
 function Address({ copyable, size }: AddressProps) {
 	const ADDRESS = `https://zora.app/@wrecs/bot/5?ref=`
 	const { data } = useAccount()
-	const [address, setAddress] = useState('0xf153...3F9e')
+	const [address, setAddress] = useState('0xf153337f18951B65642Cc88CcdF7f957CF993F9e')
 	const [isClicked, setIsClicked] = useState(false)
-
 	useEffect(() => {
-		setAddress(`${ADDRESS}${data?.address}`)
+		setAddress(`${data?.address}`)
 	}, [ADDRESS, address, data?.address])
 
 	// if (!address) return <Skeleton paragraph={{ rows: 1, width: '100%' }} title={false} active />
@@ -33,7 +32,7 @@ function Address({ copyable, size }: AddressProps) {
 			strokeLinejoin="round"
 			style={{ cursor: 'pointer' }}
 			onClick={() => {
-				navigator.clipboard.writeText(address)
+				navigator.clipboard.writeText(ADDRESS + address)
 				setIsClicked(true)
 			}}
 		>
@@ -58,7 +57,7 @@ function Address({ copyable, size }: AddressProps) {
 				suffix={copyable && (isClicked ? <Check /> : <Copy />)}
 				width="auto"
 				onClick={() => {
-					navigator.clipboard.writeText(address)
+					navigator.clipboard.writeText(ADDRESS + address)
 					setIsClicked(true)
 				}}
 			></Button>
