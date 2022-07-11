@@ -30,7 +30,7 @@ export const ShareButton = () => {
 				// Fires when all exiting nodes have completed animating out
 				onExitComplete={() => null}
 			>
-				{modalOpen && <Modal modalOpen={modalOpen} handleClose={close} />}
+				{modalOpen && <Modal handleClose={close} />}
 			</AnimatePresence>
 		</>
 	)
